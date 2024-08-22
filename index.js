@@ -10,7 +10,7 @@ app.get('/api', async (req, res) => {
   res.json({'GOOD': 'good'})
 });
 
-app.post('/send-email', async (req, res) => {
+app.post('/api/send-email', async (req, res) => {
   const { to, subject, text } = req.body;
   try {
     await sendEmail(to, subject, text);
