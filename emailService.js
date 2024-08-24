@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // Функция для отправки письма
-const sendEmail = async (to, subject, text) => {
+const sendEmail = async (subject, text) => {
   const mailOptions = {
     from: mail,
     to: mail,
