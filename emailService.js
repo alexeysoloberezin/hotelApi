@@ -1,19 +1,25 @@
 const nodemailer = require('nodemailer');
+require('dotenv').config()
 
+const mail = process.env.EMAIL
+const mailPass = process.env.PASS
 // Создайте транспортное средство
 const transporter = nodemailer.createTransport({
-  service: 'gmail', // или используйте другой сервис
+  service: "gmail",
   auth: {
-    user: 'leonidivanovweb@gmail.com',
-    pass: '',
+    user: mail,
+    pass: mailPass,
   },
+  tls: {
+    rejectUnauthorized: false // Добавьте эту строку, чтобы отключить проверку сертификата
+  }
 });
 
 // Функция для отправки письма
 const sendEmail = async (to, subject, text) => {
   const mailOptions = {
-    from: 'leonidivanovweb@gmail.com',
-    to,
+    from: mail,
+    to: mail,
     subject,
     text,
   };
