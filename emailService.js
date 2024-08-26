@@ -5,14 +5,13 @@ const mail = process.env.EMAIL
 const mailPass = process.env.PASS
 // Создайте транспортное средство
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.office365.com",
+  port: 587,
+  secure: false,
   auth: {
     user: mail,
     pass: mailPass,
   },
-  tls: {
-    rejectUnauthorized: false // Добавьте эту строку, чтобы отключить проверку сертификата
-  }
 });
 
 // Функция для отправки письма
