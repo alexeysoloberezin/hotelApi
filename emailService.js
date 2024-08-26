@@ -5,9 +5,7 @@ const mail = process.env.EMAIL
 const mailPass = process.env.PASS
 // Создайте транспортное средство
 const transporter = nodemailer.createTransport({
-  host: "smtp.office365.com",
-  port: 587,
-  secure: false,
+  service: "gmail",
   auth: {
     user: mail,
     pass: mailPass,
@@ -18,7 +16,7 @@ const transporter = nodemailer.createTransport({
 const sendEmail = async (subject, text) => {
   const mailOptions = {
     from: mail,
-    to: mail,
+    to: 'info@irishotelboston.com',
     subject,
     text,
   };
